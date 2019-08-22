@@ -1,8 +1,9 @@
 {
-    "name": "vue-custom-form",
-    "version": "0.1.0",
+    "name": "mw-vue-custom-form-test",
+    "version": "0.1.1",
     "description": "form custom",
     "author": "zhang shu hao",
+    "private": false,
     "license": "ISC",
     "keywords": [
         "component",
@@ -11,20 +12,16 @@
         "element-ui",
         "auto"
     ],
-    "main": "dist/FormMaking.common.js",
+    "main": "dist/DesignForm.common.js",
     "bugs": {
         "email": "1579542557@qq.com"
     },
     "scripts": {
         "serve": "vue-cli-service serve",
         "lint": "vue-cli-service lint",
-        "dev": "vue-cli-service serve --modern --mode devEnv",
-        "test": "vue-cli-service serve --modern --mode testEnv",
+        "dev": "vue-cli-service serve --modern",
         "build": "vue-cli-service build",
-        "build-bundle": "vue-cli-service build --target lib --name FormMaking ./src/index.js",
-        "build:aliyun_prod": "vue-cli-service build --morden --mode prodEnv",
-        "build:prod": "vue-cli-service build --morden --mode prodEnv",
-        "build:test": "vue-cli-service build --morden --mode testEnv"
+        "build-bundle": "vue-cli-service build --target lib --name DesignForm ./src/index.js"
     },
     "dependencies": {
         "axios": "^0.17.0",

@@ -10,17 +10,12 @@ export default new Router({
             path: '/',
             name: 'home',
             component: Home,
-            redirect: '/dashboard',
+            redirect: '/bench',
             children: [
                 {
-                    path: '/dashboard',
-                    name: 'Dashboard',
-                    component: () => import(/* webpackChunkName: "about" */ './views/Dashboard.vue')
-                },
-                {
-                    path: '/workbench',
-                    name: 'Workbench',
-                    component: () => import(/* webpackChunkName: "about" */ './views/edit/WorkBench.vue')
+                    path: '/bench',
+                    name: 'Bench',
+                    component: () => import(/* webpackChunkName: "about" */ './views/workspace/Bench.vue')
                 },
                 {
                     path: '/404', // 404
@@ -28,11 +23,6 @@ export default new Router({
                     component: () => import(/* webpackChunkName: "about" */ './views/404.vue')
                 }
             ]
-        },
-        {
-            path: '/login', // 登录
-            name: 'login',
-            component: () => import(/* webpackChunkName: "about" */ './views/Login.vue')
         },
         { path: '*', redirect: '/404' }
     ]

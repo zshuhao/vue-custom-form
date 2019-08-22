@@ -1,5 +1,5 @@
 <template>
-    <Container no-default-style>
+    <div class="work-space">
         <div class="header" slot="header">
             <div class="title">工作台</div>
             <div class="btn-grop">
@@ -40,7 +40,7 @@
                     </el-main>
                 </el-aside>
             </el-container>
-            <el-dialog title="提示" :visible.sync="dialogVisible">
+            <el-dialog title="预览" :visible.sync="dialogVisible">
                 <GenerateForm v-if="dialogVisible" :data="form" :value="widgetModels" ref="generateForm"></GenerateForm>
                 <span slot="footer">
                     <!-- <el-button @click="dialogVisible = false">取 消</el-button> -->
@@ -49,7 +49,6 @@
                 </span>
             </el-dialog>
             <el-dialog title="提示" :visible.sync="jsonVisible">
-                <!-- <span v-html="test"></span> -->
                 <span>{{test}}</span>
                 <span slot="footer">
                     <el-button @click="jsonVisible = false">取 消</el-button>
@@ -57,7 +56,7 @@
                 </span>
             </el-dialog>
         </div>
-    </Container>
+    </div>
 </template>
 
 <script>
@@ -68,7 +67,7 @@ import FormConfig from './FormConfig'
 import GenerateForm from '../preview/GenerateForm'
 import { basicElem } from '../../config/formItem'
 export default {
-    name: 'WorkBench',
+    name: 'Bench',
     components: {
         draggable,
         widgetForm,
@@ -131,6 +130,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
+.work-space {
+    height: 100%;
+}
 .header {
     padding: 10px;
     font-size: 20px;
@@ -144,23 +146,12 @@ export default {
     }
 }
 .container {
-    height: 100%;
+    height: calc(100% - 49px);
 }
 .area-left {
     padding: 10px;
     height: 100%;
     border-right: 1px solid #e6e6e6;
-    // .ghost {
-    //     background: #F56C6C;
-    //     border: 2px solid #F56C6C;
-    //     outline-width: 0;
-    //     height: 3px;
-    //     box-sizing: border-box;
-    //     font-size: 0;
-    //     content: '';
-    //     overflow: hidden;
-    //     padding: 0;
-    // }
     .widget-category {
         font-size: 14px;
         padding: 0 5px 8px;
@@ -226,18 +217,6 @@ export default {
     .config-content {
         height: calc(100% - 40px);
         overflow: scroll;
-    }
-}
-</style>
-
-<style lang="less">
-.page-main {
-    height: 100%;
-    .page-container {
-        height: calc(100% - 20px);
-        .c-content {
-            height: calc(100% - 41px);
-        }
     }
 }
 </style>

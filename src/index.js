@@ -1,17 +1,10 @@
-// import Vue from 'vue'
-// import 'normalize.css/normalize.css'
 
-// import MakingForm from './components/Container.vue'
-// import GenerateForm from './components/GenerateForm.vue'
-import MakingForm from './views/edit/WorkBench.vue'
+import DesignForm from './views/workspace/Bench.vue'
 import GenerateForm from './views/preview/GenerateForm.vue'
 import HelloWorld from './components/HelloWorld.vue'
-// import './iconfont/iconfont.css'
-// import './styles/cover.scss'
-// import './styles/index.scss'
 
-MakingForm.install = function (Vue) {
-    Vue.component(MakingForm.name, MakingForm)
+DesignForm.install = function (Vue) {
+    Vue.component(DesignForm.name, DesignForm)
 }
 
 GenerateForm.install = function (Vue) {
@@ -22,11 +15,7 @@ HelloWorld.install = function (Vue) {
     Vue.component(HelloWorld.name, HelloWorld)
 }
 
-const components = [
-    MakingForm,
-    GenerateForm,
-    HelloWorld
-]
+const components = [ DesignForm, GenerateForm, HelloWorld ]
 
 const install = function (Vue, opts = {}) {
     components.forEach(component => {
@@ -40,12 +29,12 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export {
     install,
-    MakingForm,
+    DesignForm,
     GenerateForm
 }
 
 export default {
     install,
-    MakingForm,
+    DesignForm,
     GenerateForm
 }

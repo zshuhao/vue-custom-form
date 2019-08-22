@@ -1,4 +1,4 @@
-import Vue from 'vue'
-import Container from '../components/Container.vue'
+// import Vue from 'vue'
+// import Container from '../components/Container.vue'
 
-Vue.component(Container.name, Container)
+// Vue.component(Container.name, Container)
