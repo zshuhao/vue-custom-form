@@ -1,16 +1,15 @@
 {
-    "name": "mw-vue-custom-form-test",
+    "name": "vue-custom-form",
     "version": "0.1.1",
-    "description": "form custom",
-    "author": "zhang shu hao",
+    "description": "custom form",
+    "author": "zhangshuhao",
     "private": false,
     "license": "ISC",
     "keywords": [
         "component",
         "vue",
         "form",
-        "element-ui",
-        "auto"
+        "element-ui"
     ],
     "main": "dist/DesignForm.common.js",
     "bugs": {
