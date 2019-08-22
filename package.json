@@ -11,8 +11,10 @@
         "form",
         "element-ui"
     ],
+    "homepage": "https://github.com/gudongz/vue-custom-form",
     "main": "dist/DesignForm.common.js",
     "bugs": {
+        "url" : "https://github.com/gudongz/vue-custom-form/issues",
         "email": "1579542557@qq.com"
     },
     "scripts": {

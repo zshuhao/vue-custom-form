@@ -28,15 +28,12 @@ export default {
     watch: {
         data: {
             handler (val) {
-                console.log('list', val)
-                console.log(this.models)
                 this.generateModle(val.list)
             },
             deep: true
         },
         value: {
             handler (val) {
-                console.log(JSON.stringify(val))
                 this.models = { ...this.models, ...val }
             },
             deep: true
@@ -47,44 +44,28 @@ export default {
     },
     methods: {
         generateModle (genList) {
-            // console.log(genList)
-            // console.log(this.value)
-            // console.log(this.models)
             for (let i = 0; i < genList.length; i++) {
                 this.models[genList[i].model] = genList[i].options.defaultValue
-                // if (genList[i].type === 'grid') {
-                //     genList[i].columns.forEach(item => {
-                //         this.generateModle(item.list)
-                //     })
-                // } else {
-                //     if (this.value && Object.keys(this.value).indexOf(genList[i].model) >= 0) {
-                //         this.models[genList[i].model] = this.value[genList[i].model]
-                //     } else {
-                //         if (genList[i].type === 'blank') {
-                //             this.$set(this.models, genList[i].model, genList[i].options.defaultType === 'String' ? '' : (genList[i].options.defaultType === 'Object' ? {} : []))
-                //         } else {
-                //             this.models[genList[i].model] = genList[i].options.defaultValue
-                //         }
-                //     }
 
-                //     if (this.rules[genList[i].model]) {
-                //         this.rules[genList[i].model] = [...this.rules[genList[i].model], ...genList[i].rules.map(item => {
-                //             if (item.pattern) {
-                //                 // return { ...item, pattern: eval(item.pattern) }
-                //             } else {
-                //                 return { ...item }
-                //             }
-                //         })]
-                //     } else {
-                //         this.rules[genList[i].model] = [...genList[i].rules.map(item => {
-                //             if (item.pattern) {
-                //                 // return { ...item, pattern: eval(item.pattern) }
-                //             } else {
-                //                 return { ...item }
-                //             }
-                //         })]
-                //     }
-                // }
+                /* eslint-disable */
+                if (this.rules[genList[i].model]) {
+                    this.rules[genList[i].model] = [...this.rules[genList[i].model], ...genList[i].rules.map(item => {
+                        if (item.pattern) {
+                            return { ...item, pattern: eval(item.pattern) }
+                        } else {
+                            return { ...item }
+                        }
+                    })]
+                } else {
+                    this.rules[genList[i].model] = [...genList[i].rules.map(item => {
+                        if (item.pattern) {
+                            return { ...item, pattern: eval(item.pattern) }
+                        } else {
+                            return { ...item }
+                        }
+                    })]
+                }
+                /* eslint-enable */
             }
         },
         getData () {

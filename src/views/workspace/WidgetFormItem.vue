@@ -1,7 +1,8 @@
 <template>
     <el-form-item class="form-item" :label="element.name"
         v-if="element && element.key"
-        :class="{ active: selectFormItem.key == element.key  }"
+        :class="{ active: selectFormItem.key == element.key }"
+        :required="element.options.required"
         @click.native.stop="handleSelectFormItem(index)">
         <template>
             <template v-if="element.type === 'input'">

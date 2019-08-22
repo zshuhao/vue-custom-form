@@ -72,6 +72,7 @@ export const basicElem = [
                 label: 'label'
             },
             remoteFunc: '',
+            fetchType: 'default', // 取选项的方式是通用的，根据type的方式
             disabled: false
         }
     },
@@ -103,6 +104,7 @@ export const basicElem = [
                 label: 'label'
             },
             remoteFunc: '',
+            fetchType: 'default',
             disabled: false
         }
     },
@@ -157,7 +159,8 @@ export const basicElem = [
                 value: 'value',
                 label: 'label'
             },
-            remoteFunc: ''
+            remoteFunc: 'default',
+            fetchType: ''
         }
     }
 ]

@@ -39,8 +39,8 @@
             <el-form-item label="选项" v-if="Object.keys(data.options).indexOf('options') >= 0">
                 <template v-if="data.options.remote">
                     <div class="input-group">
-                        <el-input size="mini" style="" v-model="data.options.remoteFunc">
-                            <template slot="prepend">方法</template>
+                        <el-input size="mini" style="" v-model="data.options.fetchType">
+                            <template slot="prepend">Type</template>
                         </el-input>
                         <el-input size="mini" style="" v-model="data.options.props.value">
                             <template slot="prepend">值</template>
@@ -113,14 +113,29 @@
 </template>
 
 <script>
-// import Draggable from 'vuedraggable'
 export default {
     name: 'WidgetConfig',
-    // components: { Draggable },
     props: ['data'],
     data () {
         return {
-            afew: 0
+            afew: 0,
+            validator: {
+                type: null,
+                required: null,
+                pattern: null,
+                range: null,
+                length: null
+            }
+        }
+    },
+    watch: {
+        'data.options.required' (val) { // 监听是否设置必填
+            this.validateRequired(val)
+        },
+        'data.name' (val) {
+            if (this.data.options) {
+                this.validateRequired(this.data.options.required)
+            }
         }
     },
     computed: {
@@ -131,15 +146,26 @@ export default {
             return false
         }
     },
-    // watch: {
-    //     afew (val) {
-    //         console.log(val)
-    //     }
-    // },
-    mounted () {
-        console.log(this.data)
-    },
     methods: {
+        validateRequired (val) {
+            if (val) {
+                this.validator.required = { required: true, message: `${this.data.name}必须填写` }
+            } else {
+                this.validator.required = null
+            }
+
+            this.$nextTick(() => {
+                this.generateRule()
+            })
+        },
+        generateRule () { // 生成该元素效验规则
+            this.data.rules = []
+            Object.keys(this.validator).forEach(key => {
+                if (this.validator[key]) {
+                    this.data.rules.push(this.validator[key])
+                }
+            })
+        },
         handleChange (val) {
             this.data.options.step = val === 0 ? 1 : 1 / (val * 10)
         },

@@ -1,11 +1,3 @@
-# form-engine
-
-### 表单引擎
-
-## 技术框架：
-* vue以及生态
-* elment-UI
-
 
 ## Project setup
 ```
@@ -31,13 +23,3 @@ yarn run test
 ```
 yarn run lint
 ```
-
-#### 访问域名
-* 测试域名：
-* 对应的生产域名：
-
-#### 开发接口文档地址
-
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

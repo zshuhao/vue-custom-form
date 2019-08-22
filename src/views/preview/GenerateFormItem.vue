@@ -117,6 +117,17 @@ export default {
             },
             deep: true
         }
+    },
+    created () {
+        // console.log(this.widget)
+        if (this.widget.options.remote) {
+            // ajax请求获取选项
+            this.widget.options.remoteOptions = [
+                { label: '1', value: '1111' },
+                { label: '2', value: '2222' },
+                { label: '3', value: '3333' }
+            ]
+        }
     }
 }
 </script>
