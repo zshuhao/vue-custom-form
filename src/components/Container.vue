@@ -1,13 +1,13 @@
 <template>
     <div class="page-main">
         <div class="page-container">
-            <div :class="{ 'c-header': true, 'page-header': !noDefaultStyle }">
+            <div :class="{ 'c-header': true, 'page-header': !noDefaultStyle, 'noBorder': noHeaderBorder }">
                 <slot name="header"></slot>
             </div>
             <div :class="{ 'c-content': true, 'page-content': !noDefaultStyle }">
                 <slot name="content"></slot>
             </div>
-            <div :class="{ 'c-footer': true, 'page-footer': !noDefaultStyle }">
+            <div :class="{ 'c-footer': true, 'page-footer': !noDefaultStyle, 'noBorder': noFooterBorder }">
                 <slot name="footer"></slot>
             </div>
         </div>
@@ -19,6 +19,14 @@ export default {
     name: 'Container',
     props: {
         noDefaultStyle: {
+            type: Boolean,
+            default: false
+        },
+        noHeaderBorder: {
+            type: Boolean,
+            default: false
+        },
+        noFooterBorder: {
             type: Boolean,
             default: false
         }
@@ -56,6 +64,9 @@ export default {
         .page-footer {
             padding: 10px;
             border-top: 1px solid #f4f4f4;
+        }
+        .noBorder {
+            border: none;
         }
     }
 }
